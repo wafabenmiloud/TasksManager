@@ -1,0 +1,95 @@
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.styledLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.styledLink:hover {
+  background-color: #005bb5;
+}
+
+.taskListContainer {
+  list-style: none;
+  padding: 0;
+}
+
+.taskItem {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskTitle {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.taskDescription {
+  margin: 0 0 10px;
+}
+
+.taskStatus {
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.taskStatus.pending {
+  color: yellow;
+}
+
+.taskStatus.inProgress {
+  color: blue;
+}
+
+.taskStatus.done {
+  color: green;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}
+.updateLink {
+  color: black;
+  border: none;
+ text-decoration: underline;
+  cursor: pointer;
+}
+
+.updateLink:hover {
+  color: #005bb5;
+}
+.linksWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+}
