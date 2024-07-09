@@ -17,7 +17,7 @@ export default function TaskList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/tasks")
+      .get("https://tasksmanager-1zxj.onrender.com/tasks")
       .then((response) => {
         setTasks(response.data);
       })
@@ -28,7 +28,7 @@ export default function TaskList() {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:4000/tasks/${id}`);
+      await axios.delete(`https://tasksmanager-1zxj.onrender.com/tasks/${id}`);
       setTasks(tasks.filter((task) => task.id !== id));
     } catch (error) {
       console.error("Error deleting task:", error);

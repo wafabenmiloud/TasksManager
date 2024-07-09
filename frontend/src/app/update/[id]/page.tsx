@@ -18,7 +18,7 @@ export default function UpdateTask() {
 
   useEffect(() => {
     if (id) {
-      axios.get<Task>(`http://localhost:4000/tasks/${id}`)
+      axios.get<Task>(`https://tasksmanager-1zxj.onrender.com/tasks/${id}`)
         .then(response => {
           setTask(response.data);
         })
@@ -36,7 +36,7 @@ export default function UpdateTask() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/tasks/${id}`, task);
+      await axios.put(`https://tasksmanager-1zxj.onrender.com/tasks/${id}`, task);
       router.push('/');
     } catch (error) {
       console.error('Error updating the task:', error);

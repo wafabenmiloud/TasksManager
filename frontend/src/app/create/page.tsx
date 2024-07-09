@@ -15,7 +15,7 @@ export default function CreateTask() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:4000/tasks', { title, description, status });
+      await axios.post('https://tasksmanager-1zxj.onrender.com/tasks', { title, description, status });
       router.push('/');
     } catch (error) {
       console.error('Error creating task:', error);
