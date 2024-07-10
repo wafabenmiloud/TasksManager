@@ -1,16 +1,31 @@
 /* src/app/create/create.module.css */
 .container {
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 800px;
+  width: 80%;
+  margin: 100px auto;
   text-align: center;
-}
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 55px 0;
 
+}
+.styledLink {
+  display: inline-block;
+  color: rgb(229, 186, 186);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 4rem;
+
+}
 .header {
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
+.container0 {
+  display: flex;
+  flex-direction: row;
+  padding: 0 30px ;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -39,14 +54,14 @@
 }
 
 .submitButton {
-  background-color: #0070f3;
+  background-color: #442840;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .submitButton:hover {
-  background-color: #005bb5;
 }

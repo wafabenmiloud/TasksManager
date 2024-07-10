@@ -4,6 +4,8 @@ import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import axios from 'axios';
 import styles from '../../create/page.module.css';
+import Link from 'next/link';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 type Task = {
   title: string;
@@ -45,6 +47,11 @@ export default function UpdateTask() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.container0}>
+         <Link href="/">
+        <FaArrowLeftLong className={styles.styledLink} />
+      </Link>
+      </div>
       <h1 className={styles.header}>Update Task</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
