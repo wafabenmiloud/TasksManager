@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import react, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { MdEdit, MdAddCircle, MdClose, MdSearch } from "react-icons/md";
 
 interface Task {
   id: number;
@@ -14,7 +15,7 @@ interface Task {
 
 export default function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
-
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     axios
       .get("https://tasksmanager-1zxj.onrender.com/tasks")
@@ -34,39 +35,65 @@ export default function TaskList() {
       console.error("Error deleting task:", error);
     }
   };
-
+  const filteredTasks = tasks.filter((task) => {
+    return task.title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Tasks List</h1>
-      <Link href="/create" className={styles.styledLink}>
-        Create Task
-      </Link>
-      <ul className={styles.taskListContainer}>
-        {tasks.map(({ id, title, description, status }) => (
-          <li key={id} className={styles.taskItem}>
-            <h2 className={styles.taskTitle}>{title}</h2>
-            <p className={styles.taskDescription}>{description}</p>
-            <p
-              className={`${styles.taskStatus} ${
-                styles[getStatusClass(status)]
-              }`}
-            >
-              {status}
-            </p>
-            <div className={styles.linksWrapper}>
-              <Link href={`/update/${id}`} className={styles.updateLink}>
-                Update
-              </Link>
-              <button
-                onClick={() => handleDelete(id)}
-                className={styles.deleteButton}
-              >
-                Delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className={styles.containerWrapper0}>
+      <div className={styles.containerWrapper1}>
+        <div className={styles.container0}>
+          <Link href="/create">
+            <MdAddCircle className={styles.styledLink} />
+          </Link>
+        </div>
+
+        <div className={styles.container1}>
+          {" "}
+          <h1 className={styles.header}>Notes</h1>
+          <div className={styles.searchWrapper}>
+            <MdSearch className={styles.searchIcon} />
+            <input
+              type="text"
+              placeholder="Search . . ."
+              className={styles.searchInput}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <ul className={styles.taskListContainer}>
+            {filteredTasks.map(({ id, title, description, status }, index) => (
+              <li className={styles.liWrapper}>
+                <MdClose
+                  className={styles.deleteButton}
+                  onClick={() => handleDelete(id)}
+                />
+
+                <div
+                  key={id}
+                  className={`${styles.taskItem} ${
+                    styles[getStatusClass(status)]
+                  }`}
+                >
+                  <h2 className={styles.taskTitle}>{title}</h2>
+                  <p className={styles.taskDescription}>{description}</p>
+                  <p
+                    className={`${styles.taskStatus} ${
+                      styles[getStatusClass(status)]
+                    }`}
+                  >
+                    {status}
+                  </p>
+                  <div className={styles.linksWrapper}>
+                    <Link href={`/update/${id}`}>
+                      <MdEdit className={styles.updateLink} />
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

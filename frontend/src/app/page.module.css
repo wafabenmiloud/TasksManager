@@ -1,50 +1,71 @@
-.container {
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 800px;
+.containerWrapper0 {
+  width: 80%;
+  margin: 100px auto;
   text-align: center;
-}
+  background-color: #fff;
+  border-radius: 20px;
 
+}
+.containerWrapper1 {
+ 
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+}
+.container0{
+  border-right: 1px solid rgb(237, 234, 234);
+  height: 100%;
+  padding: 55px 20px;
+}
+.container1{
+  height: 100%;
+  padding: 40px 20px;
+}
 .header {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  font-family: "Montserrat", sans-serif;
+font-weight: 500;
 }
 
 .styledLink {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  background-color: #0070f3;
-  color: white;
+  color: rgb(229, 186, 186);
   text-decoration: none;
   border-radius: 5px;
+  font-size: 4rem;
+
 }
 
-.styledLink:hover {
-  background-color: #005bb5;
-}
+
 
 .taskListContainer {
   list-style: none;
   padding: 0;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
 }
 
 .taskItem {
-  background: #f9f9f9;
   padding: 20px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: left;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .taskTitle {
   margin: 0 0 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .taskDescription {
   margin: 0 0 10px;
+  font-size: 1rem;
 }
 
 .taskStatus {
@@ -53,7 +74,7 @@
 }
 
 .taskStatus.pending {
-  color: yellow;
+  color: #e8df2d;
 }
 
 .taskStatus.inProgress {
@@ -65,31 +86,78 @@
 }
 
 .deleteButton {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.deleteButton:hover {
-  background-color: darkred;
-}
-.updateLink {
   color: black;
   border: none;
- text-decoration: underline;
   cursor: pointer;
+  border-radius: 100%;
+  font-size: 20px;
+  padding: 2px;
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.updateLink {
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 100%;
+  font-size: 25px;
+  background-color: black;
+  padding: 4px;
 }
 
 .updateLink:hover {
-  color: #005bb5;
 }
-.linksWrapper{
+
+.linksWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+
+.done {
+  background-color: #b6eec3; 
+}
+
+.inProgress {
+  background-color: #e9ebf4; 
+}
+
+.pending {
+  background-color: #f8f4af; 
+}
+.liWrapper{
+  position: relative;
+}
+.searchWrapper {
+  width: 100%;
+  margin: 2rem 0 5rem 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 20px;
   align-items: center;
+  padding:  0 10px;
+  gap: 10px;
+  border-radius: 15px;
+ 
+}
+.searchInput {
+  width: 100%;
+  border: none;
+ outline: none;
+ font-size: 1.3rem;
+ padding: 12px;
+}
+.searchIcon{
+  font-size: 25px;
+  color: rgb(229, 186, 186);
+
+}
+@media (max-width:1024px) {
+  
 }
