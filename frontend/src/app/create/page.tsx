@@ -38,7 +38,7 @@ export default function CreateTask() {
       </Link>
       </div>
      
-      <h1 className={styles.header}>Create Task</h1>
+      <h1 className={styles.header}>Create Note</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label>Title:</label>

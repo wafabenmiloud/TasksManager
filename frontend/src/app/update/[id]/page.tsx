@@ -52,7 +52,7 @@ export default function UpdateTask() {
         <FaArrowLeftLong className={styles.styledLink} />
       </Link>
       </div>
-      <h1 className={styles.header}>Update Task</h1>
+      <h1 className={styles.header}>Update Note</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label>Title:</label>
