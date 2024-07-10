@@ -1,6 +1,6 @@
 "use client";
 
-import react, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -16,6 +16,7 @@ interface Task {
 export default function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
     axios
       .get("https://tasksmanager-1zxj.onrender.com/tasks")
@@ -35,9 +36,11 @@ export default function TaskList() {
       console.error("Error deleting task:", error);
     }
   };
-  const filteredTasks = tasks.filter((task) => {
-    return task.title.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className={styles.containerWrapper0}>
       <div className={styles.containerWrapper1}>
@@ -48,7 +51,6 @@ export default function TaskList() {
         </div>
 
         <div className={styles.container1}>
-          {" "}
           <h1 className={styles.header}>Notes</h1>
           <div className={styles.searchWrapper}>
             <MdSearch className={styles.searchIcon} />
@@ -61,26 +63,19 @@ export default function TaskList() {
             />
           </div>
           <ul className={styles.taskListContainer}>
-            {filteredTasks.map(({ id, title, description, status }, index) => (
-              <li className={styles.liWrapper}>
+            {filteredTasks.map(({ id, title, description, status }) => (
+              <li className={styles.liWrapper} key={id}>
                 <MdClose
                   className={styles.deleteButton}
                   onClick={() => handleDelete(id)}
                 />
 
                 <div
-                  key={id}
-                  className={`${styles.taskItem} ${
-                    styles[getStatusClass(status)]
-                  }`}
+                  className={`${styles.taskItem} ${styles[getStatusClass(status)]}`}
                 >
                   <h2 className={styles.taskTitle}>{title}</h2>
                   <p className={styles.taskDescription}>{description}</p>
-                  <p
-                    className={`${styles.taskStatus} ${
-                      styles[getStatusClass(status)]
-                    }`}
-                  >
+                  <p className={`${styles.taskStatus} ${styles[getStatusClass(status)]}`}>
                     {status}
                   </p>
                   <div className={styles.linksWrapper}>
