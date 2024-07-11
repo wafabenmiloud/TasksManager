@@ -74,7 +74,8 @@ export default function TaskList() {
                   className={`${styles.taskItem} ${styles[getStatusClass(status)]}`}
                 >
                   <h2 className={styles.taskTitle}>{title}</h2>
-                  <p className={styles.taskDescription}>{description}</p>
+                  
+                  <p className={styles.taskDescription} dangerouslySetInnerHTML={{ __html: description }}/>
                   <p className={`${styles.taskStatus} ${styles[getStatusClass(status)]}`}>
                     {status}
                   </p>
@@ -87,6 +88,11 @@ export default function TaskList() {
               </li>
             ))}
           </ul>
+          <div className={styles.container02}>
+          <Link href="/create">
+            <MdAddCircle className={styles.styledLink} />
+          </Link>
+        </div>
         </div>
       </div>
     </div>

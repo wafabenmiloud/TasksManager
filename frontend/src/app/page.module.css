@@ -4,31 +4,31 @@
   text-align: center;
   background-color: #fff;
   border-radius: 20px;
-
 }
 .containerWrapper1 {
- 
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 8fr;
   gap: 20px;
   justify-content: center;
   align-items: center;
-
 }
-.container0{
+.container0 {
   border-right: 1px solid rgb(237, 234, 234);
   height: 100%;
   padding: 55px 20px;
 }
-.container1{
+.container02 {
+  display: none;
+}
+.container1 {
   height: 100%;
   padding: 40px 20px;
 }
 .header {
   font-size: 3.5rem;
   font-family: "Montserrat", sans-serif;
-font-weight: 500;
+  font-weight: 500;
 }
 
 .styledLink {
@@ -37,16 +37,12 @@ font-weight: 500;
   text-decoration: none;
   border-radius: 5px;
   font-size: 4rem;
-
 }
-
-
-
 .taskListContainer {
   list-style: none;
   padding: 0;
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
 }
 
@@ -56,6 +52,10 @@ font-weight: 500;
   border-radius: 15px;
   text-align: left;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .taskTitle {
@@ -64,8 +64,8 @@ font-weight: 500;
 }
 
 .taskDescription {
-  margin: 0 0 10px;
-  font-size: 1rem;
+  margin: 0 20px;
+  font-size: 0.8rem;
 }
 
 .taskStatus {
@@ -96,7 +96,8 @@ font-weight: 500;
   top: -10px;
   right: -8px;
   background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .updateLink {
@@ -109,8 +110,6 @@ font-weight: 500;
   padding: 4px;
 }
 
-.updateLink:hover {
-}
 
 .linksWrapper {
   display: flex;
@@ -121,17 +120,17 @@ font-weight: 500;
 }
 
 .done {
-  background-color: #b6eec3; 
+  background-color: #b6eec3;
 }
 
 .inProgress {
-  background-color: #e9ebf4; 
+  background-color: #e9ebf4;
 }
 
 .pending {
-  background-color: #f8f4af; 
+  background-color: #f8f4af;
 }
-.liWrapper{
+.liWrapper {
   position: relative;
 }
 .searchWrapper {
@@ -141,23 +140,44 @@ font-weight: 500;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding:  0 10px;
+  padding: 0 10px;
   gap: 10px;
   border-radius: 15px;
- 
 }
 .searchInput {
   width: 100%;
   border: none;
- outline: none;
- font-size: 1.3rem;
- padding: 12px;
+  outline: none;
+  font-size: 1.3rem;
+  padding: 12px;
 }
-.searchIcon{
+.searchIcon {
   font-size: 25px;
   color: rgb(229, 186, 186);
-
 }
-@media (max-width:1024px) {
-  
+@media (max-width: 768px) {
+  .containerWrapper0 {
+    width: 100%;
+    margin: 0px;
+    border-radius: 0;
+  }
+}
+@media (max-width: 500px) {
+  .containerWrapper1 {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .container02 {
+    border-right: none;
+    padding: 55px 20px;
+    display: block;
+    
+  }
+  .container0 {
+    display: none;
+  }
 }
